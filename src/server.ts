@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import bodyParser from "body-parser";
 import { filterImageFromURL, deleteLocalFiles } from "./util/util";
 import { filter } from "bluebird";
@@ -36,7 +36,7 @@ import { filter } from "bluebird";
   }
 
   // filtered image endpoint
-  app.get("/filteredimage", async (req, res) => {
+  app.get("/filteredimage", async (req: Request, res: Response) => {
     let url = req.query.image_url as string;
     let newUrl = linkValidation(url);
 
